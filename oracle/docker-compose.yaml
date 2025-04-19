@@ -1,0 +1,15 @@
+services:
+  oracle-db:
+    image: oraclelinux:8.10
+    container_name: oracle-db
+    ports:
+      - "1521:1521"   # Oracle listener
+      - "5500:5500"   # Oracle Enterprise Manager Express
+    environment:
+      - ORACLE_PWD=123  # Set your own strong password
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+    restart: unless-stopped
+
+volumes:
+  oracle-data:
