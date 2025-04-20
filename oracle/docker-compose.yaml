@@ -1,12 +1,14 @@
 services:
   oracle-db:
-    image: oraclelinux:8.10
+    image: gvenzl/oracle-free
     container_name: oracle-db
     ports:
-      - "1521:1521"   # Oracle listener
-      - "5500:5500"   # Oracle Enterprise Manager Express
+      - "1521:1521"  # Oracle listener
+      - "8080:8080"  # SQL Developer Web
     environment:
-      - ORACLE_PWD=123  # Set your own strong password
+      ORACLE_PASSWORD: 123
+      APP_USER: user
+      APP_USER_PASSWORD: 123
     volumes:
       - oracle-data:/opt/oracle/oradata
     restart: unless-stopped

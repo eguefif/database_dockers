@@ -20,7 +20,7 @@ services:
       PMA_HOST: mysql 
       MYSQL_ROOT_PASSWORD: 123
     ports:
-      - "8080:80"
+      - "8000:80"
     depends_on:
       - mysql
     restart: unless-stopped
